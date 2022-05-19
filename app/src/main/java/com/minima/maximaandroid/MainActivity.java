@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 //Tell Minima..
                 try{
-                    String result = RPCClient.sendGET(MainActivity.MINIMA_HOST+"maxcontacts+action:add+address:"+mNewContactAddress);
+                    String result = RPCClient.sendGET(MainActivity.MINIMA_HOST+"maxcontacts action:add contact:"+mNewContactAddress);
 
                     MinimaLogger.log(result);
 

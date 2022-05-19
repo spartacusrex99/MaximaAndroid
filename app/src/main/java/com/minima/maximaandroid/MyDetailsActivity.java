@@ -59,6 +59,8 @@ public class MyDetailsActivity extends AppCompatActivity {
 
     public void updateName(){
 
+        Toast.makeText(this,"Updating Maxima Name..",Toast.LENGTH_SHORT).show();
+
         Runnable update = new Runnable() {
             @Override
             public void run() {
@@ -77,7 +79,6 @@ public class MyDetailsActivity extends AppCompatActivity {
                 }catch(Exception exc){
                     MinimaLogger.log(exc);
                 }
-
             }
         };
 
