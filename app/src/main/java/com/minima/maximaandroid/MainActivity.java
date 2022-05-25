@@ -31,8 +31,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static String MINIMA_HOST = "http://10.0.2.2:9002/";
-    //public static String MINIMA_HOST = "http://127.0.0.1:9002/";
+    //public static String MINIMA_HOST = "http://10.0.2.2:9002/";
+    public static String MINIMA_HOST = "http://127.0.0.1:9002/";
 
     ListView mMainList;
 
