@@ -42,6 +42,12 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="Your Details"/>
 
+        <activity   android:name=".HelpActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="Help"/>
+
     </application>
 
 </manifest>

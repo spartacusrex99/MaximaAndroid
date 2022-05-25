@@ -2,17 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_refresh"
-        android:orderInCategory="100"
-        android:title="Refresh"
-        android:icon="@android:drawable/ic_menu_rotate"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/menu_mydetails"
         android:orderInCategory="100"
         android:title="My Details"
         android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:orderInCategory="100"
+        android:title="Refresh"
+        android:icon="@android:drawable/ic_menu_rotate"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_help"
+        android:orderInCategory="100"
+        android:title="Help"
+        android:icon="@android:drawable/ic_menu_help"
         app:showAsAction="never" />
 
 </menu>

@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static String MINIMA_HOST = "http://10.0.2.2:9002/";
+    //public static String MINIMA_HOST = "http://127.0.0.1:9002/";
 
     ListView mMainList;
 
@@ -45,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
 
         mMainList = findViewById(R.id.maxima_list);
 
+        //If it's Empty
+        mMainList.setEmptyView(findViewById(R.id.empty_list_item));
+
+        //What happens on click
         mMainList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -207,6 +213,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this,"Refreshing Contact List", Toast.LENGTH_SHORT).show();
 
                 updateContactList();
+                return true;
+
+            case R.id.menu_help:
+
+                //Show your details
+                Intent helpintent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(helpintent);
+
                 return true;
 
             default:
