@@ -165,6 +165,13 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } catch (Exception e) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(MainActivity.this, "Could not connect to local Minima Node..", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
                     e.printStackTrace();
                 }
 
