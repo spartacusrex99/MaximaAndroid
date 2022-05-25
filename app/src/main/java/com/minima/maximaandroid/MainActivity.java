@@ -3,8 +3,10 @@ package com.minima.maximaandroid;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
@@ -32,7 +34,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     //public static String MINIMA_HOST = "http://10.0.2.2:9002/";
-    public static String MINIMA_HOST = "http://127.0.0.1:9002/";
+    public static String MINIMA_HOST;
 
     ListView mMainList;
 
@@ -44,6 +46,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Get the Host fro shared preferences..
+        SharedPreferences prefs = getSharedPreferences("maxima", Context.MODE_PRIVATE);
+        MINIMA_HOST = prefs.getString("minima_host","http://127.0.0.1:9002/");
 
         mMainList = findViewById(R.id.maxima_list);
 

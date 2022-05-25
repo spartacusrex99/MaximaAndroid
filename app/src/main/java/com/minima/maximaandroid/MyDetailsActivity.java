@@ -3,6 +3,7 @@ package com.minima.maximaandroid;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +29,7 @@ public class MyDetailsActivity extends AppCompatActivity {
     EditText mName;
     String mNameString = "";
 
-    Button mUpdate;
+    EditText mHost;
 
     TextView mContact;
     String mContactString = "";
@@ -40,8 +41,9 @@ public class MyDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_mydetails);
 
         mName       = findViewById(R.id.mydetails_name);
-        mUpdate     = findViewById(R.id.mydetails_updatename);
-        mUpdate.setOnClickListener(new View.OnClickListener() {
+
+        Button updatename     = findViewById(R.id.mydetails_updatename);
+        updatename.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Check if no view has focus:
@@ -49,6 +51,34 @@ public class MyDetailsActivity extends AppCompatActivity {
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
                 updateName();
+            }
+        });
+
+        mHost = findViewById(R.id.mydetails_minimahost);
+        mHost.setText(MainActivity.MINIMA_HOST);
+
+        Button updatehost = findViewById(R.id.mydetails_updatehost);
+        updatehost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Check if no view has focus:
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+                String host = mHost.getText().toString();
+
+                //Edit the prefs
+                SharedPreferences prefs = getSharedPreferences("maxima", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = prefs.edit();
+                edit.putString("minima_host",host);
+                edit.apply();
+
+                //Set..
+                MainActivity.MINIMA_HOST = host;
+
+                Toast.makeText(MyDetailsActivity.this,"Minima host updated..", Toast.LENGTH_SHORT).show();
+
+                setDetails();
             }
         });
 

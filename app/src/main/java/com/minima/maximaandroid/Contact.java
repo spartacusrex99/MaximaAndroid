@@ -46,22 +46,30 @@ public class Contact implements Serializable {
         mMinimaAddress          = (String)extradata.get("minimaaddress");
     }
 
-    public boolean getStatus(){
-
-        long timenow = System.currentTimeMillis();
-        if(timenow - mLastSeen < 1000 * 60 * 30 && mSameChain){
-            return true;
-        }
-
-        return false;
+    public boolean getChainStatus(){
+        return mSameChain;
     }
 
-    public boolean getConnectionInTime(){
-        long timenow = System.currentTimeMillis();
-        if(timenow - mLastSeen < 1000 * 60 * 30){
-            return true;
-        }
-        return false;
+    public boolean getTimeStatus(){
+        return (System.currentTimeMillis() - mLastSeen < 1000 * 60 * 30);
     }
+
+//    public boolean getStatus(){
+//
+//        long timenow = System.currentTimeMillis();
+//        if(timenow - mLastSeen < 1000 * 60 * 30 && mSameChain){
+//            return true;
+//        }
+//
+//        return false;
+//    }
+//
+//    public boolean getConnectionInTime(){
+//        long timenow = System.currentTimeMillis();
+//        if(timenow - mLastSeen < 1000 * 60 * 30){
+//            return true;
+//        }
+//        return false;
+//    }
 
 }

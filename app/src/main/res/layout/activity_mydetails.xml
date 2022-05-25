@@ -47,6 +47,24 @@
         android:textSize="16dp"
         android:text=""/>
 
+    <TextView
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="Minima Node : "/>
+
+    <EditText
+        android:id="@+id/mydetails_minimahost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_gravity="right"
+        android:id="@+id/mydetails_updatehost"
+        android:text="Update Host"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

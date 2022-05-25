@@ -41,25 +41,29 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
 
         Contact contact = getItem(position);
 
-        TextView name       = v.findViewById(R.id.contact_name);
-        TextView lastseen   = v.findViewById(R.id.contact_lastseen);
-        TextView status     = v.findViewById(R.id.contact_status);
+        TextView name        = v.findViewById(R.id.contact_name);
+        TextView lastseen    = v.findViewById(R.id.contact_lastseen);
+        TextView statustime  = v.findViewById(R.id.contact_status_time);
+        TextView statuschain = v.findViewById(R.id.contact_status_chain);
 
         name.setText(contact.mName);
         lastseen.setText( DATEFORMAT.format(new Date(contact.mLastSeen)));
 
-        if(contact.getStatus()){
-            status.setTextColor(Color.parseColor("#00FF00"));
+        if(contact.getTimeStatus()){
+            statustime.setTextColor(Color.parseColor("#00FF00"));
         }else{
-            if(contact.getConnectionInTime()){
-                status.setTextColor(Color.parseColor("#FF0000"));
-            }else{
-                status.setTextColor(Color.parseColor("#00FFFF"));
-            }
+            statustime.setTextColor(Color.parseColor("#FF0000"));
+        }
+
+        if(contact.getChainStatus()){
+            statuschain.setTextColor(Color.parseColor("#00FF00"));
+        }else{
+            statuschain.setTextColor(Color.parseColor("#FF0000"));
         }
 
         //Set some Text..
-        status.setText("STATUS");
+        statustime.setText("NETWORK");
+        statuschain.setText("CHAIN");
 
         return v;
     }
