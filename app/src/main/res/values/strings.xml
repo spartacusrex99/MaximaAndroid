@@ -2,7 +2,7 @@
     <string name="app_name">Maxima</string>
 
     <string name="app_help">\n
-        Maxima is an information transport layer running on top of the Minima peer to peer network.\n
+        Maxima is an information transport layer running over the Minima peer to peer network.\n
         \n
         All messages are signed and then encrypted so only the individual you send the message to can decrypt it and only they know that you sent it.\n
         \n
