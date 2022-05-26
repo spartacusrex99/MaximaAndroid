@@ -67,11 +67,10 @@ public class MainActivity extends AppCompatActivity {
                 //Now open a Contact Activity
                 Intent intent = new Intent(MainActivity.this, ContactActivity.class);
                 intent.putExtra("contact", contact);
-                startActivityForResult(intent,0);
+//                startActivityForResult(intent,0);
+                startActivity(intent);
             }
         });
-
-        updateContactList();
 
         FloatingActionButton fab = findViewById(R.id.fab_maxima);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +79,13 @@ public class MainActivity extends AppCompatActivity {
                 showNewContactDialog();
             }
         });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        updateContactList();
     }
 
     public void showNewContactDialog(){
@@ -103,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                Toast.makeText(MainActivity.this,"Adding contact.. please wait..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"Adding contact.. please wait..", Toast.LENGTH_LONG).show();
 
                 addContact(mNewContactAddress);
             }
@@ -241,16 +247,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    protected void onActivityResult (int requestCode,
-                                     int resultCode,
-                                     Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        //Have we deleted a contact
-        if(resultCode == 99){
-            updateContactList();
-        }
-    }
+//    @Override
+//    protected void onActivityResult (int requestCode,
+//                                     int resultCode,
+//                                     Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        //Have we deleted a contact
+//        if(resultCode == 99){
+//            updateContactList();
+//        }
+//    }
 
 }

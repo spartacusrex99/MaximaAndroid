@@ -2,31 +2,31 @@
     <string name="app_name">Maxima</string>
 
     <string name="app_help">\n
-        Maxima is an information layer running on top of the Minima peer to peer network\n
+        Maxima is an information transport layer running on top of the Minima peer to peer network.\n
         \n
-        All messages are signed and then encrypted so only the individual you send the message to can decrypt it and only they know that you sent it\n
+        All messages are signed and then encrypted so only the individual you send the message to can decrypt it and only they know that you sent it.\n
         \n
-        Your Minima P2P network connections constantly change and you create a new and unique random address on every node you are connected to\n
+        Your Minima P2P network connections are dynamic and constantly change. You create a new unique public key for every node you connect to.\n
         \n
-        By updating your contacts as to your current location whenever your address changes they can always find you - and vice versa\n
+        By updating your contacts as to your current location whenever your address changes they can always find you - and vice versa.\n
         \n
-        What is interesting, original and extremely powerful is that Maxima requires 2-way consent\n
+        What is interesting, original and extremely powerful is that Maxima requires 2-way consent.\n
         \n
-        You create a connection with a User and once that connection is established both of you can message the other\n
+        You create a connection with a User and once that connection is established both of you can message the other.\n
         \n
-        Should either party wish to terminate the connection they can do that and then neither party can message the other - as they do not know where to get hold of you\n
+        Should either party wish to terminate the connection they can do that and then neither party can message the other - as they do not know who or where the other party is.\n
         \n
-        In effect this means if I delete someone from my contact list I am also deleted from their list\n
+        In effect this means if I delete someone from my contact list, I am also deleted from their list.\n
         \n
         Maxima messages are currently paid for with a small amount of PoW. Work. You \'mine\' your message. The rationale is that a User will forward your message if you do some work protecting their coins. In so doing you are also protecting your coins. Win Win..\n
         \n
-        In future you will be able to pay for message delivery in Minima over the Omnia L2 network\n
+        In future you will be able to pay for message delivery in Minima itself over the Omnia Layer 2 network. This will decrease delay and increase throughput.\n
         \n
         You have to pay something - as this prevents spam and makes Maxima incentive compatible. There will always be Users prepared to forward your messages..\n
         \n
-        This is an early BETA at the moment but I hope you enjoy using it\n
+        This is still an early BETA version but I hope you enjoy using it.\n
         \n
-        Spartacus
+        Spartacus Rex
     </string>
 
 </resources>
