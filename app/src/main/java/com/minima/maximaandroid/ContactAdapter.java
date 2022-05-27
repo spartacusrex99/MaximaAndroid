@@ -59,10 +59,10 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
             statustime.setTextColor(Color.parseColor("#FF0000"));
 
             //Only YELLOW at best if network not in time..
-            chainok = "#00FFFF";
+            chainok = "#FFFF00";
 
         }else if(diff > 1000 * 60 * 30){
-            statustime.setTextColor(Color.parseColor("#00FFFF"));
+            statustime.setTextColor(Color.parseColor("#FFFF00"));
         }else{
             statustime.setTextColor(Color.parseColor("#00FF00"));
         }
