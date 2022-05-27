@@ -49,10 +49,18 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         name.setText(contact.mName);
         lastseen.setText( DATEFORMAT.format(new Date(contact.mLastSeen)));
 
-        if(contact.getTimeStatus()){
-            statustime.setTextColor(Color.parseColor("#00FF00"));
-        }else{
+        long timenow        = System.currentTimeMillis();
+        long lastcontact    = contact.getLastSeen();
+        long diff           = timenow-lastcontact;
+
+        if(diff > 1000 * 60 * 60){
             statustime.setTextColor(Color.parseColor("#FF0000"));
+
+        }else if(diff > 1000 * 60 * 30){
+            statustime.setTextColor(Color.parseColor("#00FFFF"));
+
+        }else{
+            statustime.setTextColor(Color.parseColor("#00FF00"));
         }
 
         if(contact.getChainStatus()){

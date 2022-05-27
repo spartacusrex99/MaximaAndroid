@@ -1,15 +1,11 @@
 package com.minima.maximaandroid;
 
+import org.minima.objects.base.MiniNumber;
 import org.minima.utils.json.JSONObject;
 
 import java.io.Serializable;
 
 public class Contact implements Serializable {
-
-    public static final int STATUS_IDLE     = 0;
-    public static final int STATUS_RED      = 1;
-    public static final int STATUS_YELLOW   = 2;
-    public static final int STATUS_GREEN    = 3;
 
     public long mID          = 0;
 
@@ -18,13 +14,14 @@ public class Contact implements Serializable {
     public String mAddress   = "";
     public String mMyAddress   = "";
 
+    public String mMyChainTip;
+    public String mTheirChainTip;
+
     public String mMinimaAddress   = "";
 
     public  long  mLastSeen = System.currentTimeMillis();
 
     public boolean mSameChain = false;
-
-    public  int  mStatus = STATUS_GREEN;
 
     public Contact(){}
 
@@ -38,12 +35,27 @@ public class Contact implements Serializable {
         mAddress    = (String)zJSONContact.get("currentaddress");
         mMyAddress  = (String)zJSONContact.get("myaddress");
         mLastSeen   = (long)zJSONContact.get("lastseen");
+
+        mMyChainTip = (String)zJSONContact.get("chaintip");
         mSameChain  = (boolean)zJSONContact.get("samechain");
 
         //Get the Extra Data
         JSONObject extradata    = (JSONObject)zJSONContact.get("extradata");
         mName                   = (String)extradata.get("name");
         mMinimaAddress          = (String)extradata.get("minimaaddress");
+        mTheirChainTip          = (String)extradata.get("topblock");
+    }
+
+    public long getLastSeen(){
+        return mLastSeen;
+    }
+
+    public MiniNumber getTheirChainTip(){
+        return new MiniNumber(mTheirChainTip);
+    }
+
+    public MiniNumber getMyChainTip(){
+        return new MiniNumber(mMyChainTip);
     }
 
     public boolean getChainStatus(){
@@ -53,23 +65,4 @@ public class Contact implements Serializable {
     public boolean getTimeStatus(){
         return (System.currentTimeMillis() - mLastSeen < 1000 * 60 * 30);
     }
-
-//    public boolean getStatus(){
-//
-//        long timenow = System.currentTimeMillis();
-//        if(timenow - mLastSeen < 1000 * 60 * 30 && mSameChain){
-//            return true;
-//        }
-//
-//        return false;
-//    }
-//
-//    public boolean getConnectionInTime(){
-//        long timenow = System.currentTimeMillis();
-//        if(timenow - mLastSeen < 1000 * 60 * 30){
-//            return true;
-//        }
-//        return false;
-//    }
-
 }

@@ -102,7 +102,7 @@ public class MyDetailsActivity extends AppCompatActivity {
                 try{
 
                     //Do the RPC call..
-                    String maxupdate = RPCClient.sendGET(MainActivity.MINIMA_HOST+"maxcontacts action:myname name:\""+name+"\"");
+                    String maxupdate = RPCClient.sendGET(MainActivity.MINIMA_HOST+"maxima action:setname name:\""+name+"\"");
 
                     MinimaLogger.log(maxupdate);
 

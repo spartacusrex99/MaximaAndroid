@@ -180,11 +180,11 @@ public class MainActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(MainActivity.this, "Could not connect to local Minima Node..", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this, "Could not connect to Minima Node..", Toast.LENGTH_SHORT).show();
                         }
                     });
 
-                    e.printStackTrace();
+                    MinimaLogger.log(e);
                 }
 
                 //Get the array list
