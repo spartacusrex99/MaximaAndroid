@@ -36,33 +36,33 @@ public class Contact implements Serializable {
         mMyAddress  = (String)zJSONContact.get("myaddress");
         mLastSeen   = (long)zJSONContact.get("lastseen");
 
-        mMyChainTip = (String)zJSONContact.get("chaintip");
+        //mMyChainTip = (String)zJSONContact.get("chaintip");
         mSameChain  = (boolean)zJSONContact.get("samechain");
 
         //Get the Extra Data
         JSONObject extradata    = (JSONObject)zJSONContact.get("extradata");
         mName                   = (String)extradata.get("name");
         mMinimaAddress          = (String)extradata.get("minimaaddress");
-        mTheirChainTip          = (String)extradata.get("topblock");
+        //mTheirChainTip          = (String)extradata.get("topblock");
     }
 
     public long getLastSeen(){
         return mLastSeen;
     }
 
-    public MiniNumber getTheirChainTip(){
+    /*public MiniNumber getTheirChainTip(){
         return new MiniNumber(mTheirChainTip);
     }
 
     public MiniNumber getMyChainTip(){
         return new MiniNumber(mMyChainTip);
-    }
+    }*/
 
     public boolean getChainStatus(){
         return mSameChain;
     }
 
-    public boolean getTimeStatus(){
+    /*public boolean getTimeStatus(){
         return (System.currentTimeMillis() - mLastSeen < 1000 * 60 * 30);
-    }
+    }*/
 }

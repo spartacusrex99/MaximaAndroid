@@ -88,7 +88,7 @@ public class ContactActivity extends AppCompatActivity {
                 }
 
                 //And exit with code 99
-                ContactActivity.this.setResult(99);
+                //ContactActivity.this.setResult(99);
                 ContactActivity.this.finish();
             }
         };
