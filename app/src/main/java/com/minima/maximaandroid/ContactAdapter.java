@@ -53,18 +53,22 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         long lastcontact    = contact.getLastSeen();
         long diff           = timenow-lastcontact;
 
+        String chainok = "#00FF00";
+
         if(diff > 1000 * 60 * 60){
             statustime.setTextColor(Color.parseColor("#FF0000"));
 
+            //Only YELLOW at best if network not in time..
+            chainok = "#00FFFF";
+
         }else if(diff > 1000 * 60 * 30){
             statustime.setTextColor(Color.parseColor("#00FFFF"));
-
         }else{
             statustime.setTextColor(Color.parseColor("#00FF00"));
         }
 
         if(contact.getChainStatus()){
-            statuschain.setTextColor(Color.parseColor("#00FF00"));
+            statuschain.setTextColor(Color.parseColor(chainok));
         }else{
             statuschain.setTextColor(Color.parseColor("#FF0000"));
         }
