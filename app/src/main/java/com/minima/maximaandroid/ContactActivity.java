@@ -83,12 +83,15 @@ public class ContactActivity extends AppCompatActivity {
                     String result = RPCClient.sendGET(MainActivity.MINIMA_HOST+"maxcontacts+action:remove+id:"+mContact.mID);
 
                     MinimaLogger.log(result);
+
+                    //Pause to let it update..
+                    Thread.sleep(2000);
+
                 }catch(Exception exc){
                     MinimaLogger.log(exc);
                 }
 
                 //And exit with code 99
-                //ContactActivity.this.setResult(99);
                 ContactActivity.this.finish();
             }
         };
