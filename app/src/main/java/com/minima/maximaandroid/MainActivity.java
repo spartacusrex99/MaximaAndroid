@@ -151,6 +151,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateContactList(){
+        updateContactList(false);
+    }
+
+    public void updateContactList(boolean zRefrshAswell){
 
         Runnable update = new Runnable() {
             @Override
@@ -159,6 +163,13 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<Contact> contacts = new ArrayList<>();
 
                 try {
+                    //Are we refreshing out contacts
+                    if(zRefrshAswell){
+                        //Run maxima refresh - tell everyone where you are
+                        String resp = RPCClient.sendGET(MINIMA_HOST+"maxima action:refresh");
+                        MinimaLogger.log(resp);
+                    }
+
                     //Do the RPC call..
                     String maxcontacts = RPCClient.sendGET(MINIMA_HOST+"maxcontacts");
 
@@ -231,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_refresh:
                 Toast.makeText(this,"Refreshing Contact List", Toast.LENGTH_SHORT).show();
 
-                updateContactList();
+                updateContactList(true);
                 return true;
 
             case R.id.menu_help:
